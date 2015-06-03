@@ -1,2 +1,2 @@
-drop user 'xebialabs'@'%';
+drop user 'xebialabs'@'localhost';
 	

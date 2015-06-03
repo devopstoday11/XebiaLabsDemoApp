@@ -1,3 +1,24 @@
 <project name="XebiaLabsDemoApp">
+	<target name="clean">
+		<delete dir="work" />
+	</target>
+	<target name="dar">
+		<!-- 
+		Create dar package with deployit-manifest.xml file, tomcat WAR file and sql scripts for now.
+		Extend later to include items for other types of middleware (was, etc.).
+		-->
+		<property name="version">1.35.${buildNumber}</property>
+		<echo message="Building version ${version}" />
+		<property name="buildDir">work/build-${buildNumber}</property>
+		<mkdir dir="${buildDir}" />
+		<copy file="common/deployit-manifest.xml" todir="${buildDir}" />
+		<replace file="${buildDir}/deployit-manifest.xml" token="VERSION" value="${version}" />
+		<mkdir dir="${buildDir}/xlda-tomcat" />
+		<copy file="tomcat/xlda.war" todir="${buildDir}/xlda-tomcat" />
+		<mkdir dir="${buildDir}/sql" />
+		<zip destfile="${buildDir}/xlda-sql/xlda-sql.zip"  basedir="sql" />
+		<mkdir dir="${buildDir}/dar" />
+		<zip destfile="${buildDir}/dar/xlda-${version}.dar" basedir="${buildDir}" />
+	</target>
 </project>
 

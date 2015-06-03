@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<udm.DeploymentPackage version="VERSION" application="xlda">
+  <orchestrator />
+  <deployables>
+    <tomcat.War name="xlda-tomcat" file="xlda-tomcat/xlda.war">
+      <tags />
+      <scanPlaceholders>true</scanPlaceholders>
+      <contextRoot>xlda</contextRoot>
+    </tomcat.War>
+    <sql.SqlScripts name="xlda-sql" file="xlda-sql/xlda-sql.zip">
+      <tags />
+      <scanPlaceholders>true</scanPlaceholders>
+    </sql.SqlScripts>
+  </deployables>
+</udm.DeploymentPackage>
+
